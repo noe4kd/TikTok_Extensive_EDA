@@ -68,7 +68,6 @@ Tiktok_EDA/
 │   ├── KNN.py
 │   ├── __init__.py
 │   ├── outcomes/
-│   │   ├── knn_cm_test_set.png
 │   │   ├── knn_cm_test_set_test_script.png
 │   │   ├── knn_cm_validation_set.png
 │   │   ├── knn_confusion_matrix_combined.png

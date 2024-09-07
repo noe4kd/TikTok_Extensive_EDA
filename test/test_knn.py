@@ -4,7 +4,7 @@ import numpy as np
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler, PolynomialFeatures
-from sklearn.metrics import classification_report, confusion_matrix, accuracy_score, precision_score, recall_score, f1_score
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 import sys
 import os
 
@@ -17,6 +17,9 @@ class TestKNNPipeline(unittest.TestCase):
 
     def setUp(self):
         """Set up the environment for testing."""
+        # Set a random seed for reproducibility
+        np.random.seed(42)
+
         # Simulate a small dataset for testing
         self.df = pd.DataFrame({
             'Subscribers count': np.random.randint(100, 1000, size=100),
@@ -55,6 +58,7 @@ class TestKNNPipeline(unittest.TestCase):
         self.output_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'KNN', 'outcomes'))
         os.makedirs(self.output_dir, exist_ok=True)
 
+
     def test_create_engagement_variable(self):
         """Test if the engagement variable is created correctly."""
         self.assertIn('Engagement', self.df.columns)
@@ -83,13 +87,13 @@ class TestKNNPipeline(unittest.TestCase):
     def test_evaluate_model(self):
         """Test if model evaluation runs without errors."""
         knn = optimize_knn(self.X_train_poly, self.y_train)
-    
-        # Define a unique filename
+
+        # Define a unique filename 
         unique_filename = 'knn_cm_test_set_test_script.png'
-    
+
         # Pass the unique filename to evaluate_model
         y_pred = evaluate_model(knn, self.X_test_poly, self.y_test, 'Test Set', self.output_dir, custom_filename=unique_filename)
-    
+
         # Performance metrics
         accuracy = accuracy_score(self.y_test, y_pred)
         precision = precision_score(self.y_test, y_pred)
@@ -105,14 +109,15 @@ class TestKNNPipeline(unittest.TestCase):
             'params': knn.get_params()
         })
 
-        # Example assertion: Ensure accuracy is above a threshold
         self.assertGreaterEqual(accuracy, 0.3, f"Model accuracy {accuracy} is below the acceptable threshold.")
 
     def test_pipeline(self):
         """Test the entire pipeline."""
         try:
             knn = optimize_knn(self.X_train_poly, self.y_train)
-            y_pred = evaluate_model(knn, self.X_test_poly, self.y_test, 'Test Set', self.output_dir)
+            # Define a unique filename for this test
+            unique_filename = 'knn_cm_test_set_test_script.png'
+            y_pred = evaluate_model(knn, self.X_test_poly, self.y_test, 'Test Set', self.output_dir, custom_filename= unique_filename)
             self.assertIsNotNone(y_pred)
         except Exception as e:
             self.fail(f"Pipeline failed with exception: {e}")

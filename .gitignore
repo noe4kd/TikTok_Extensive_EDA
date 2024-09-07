@@ -1,0 +1,51 @@
+<<<<<<< HEAD
+# Ignore Python cache files
+__pycache__/
+*.py[cod]
+
+# Ignore virtual environments
+.venv/
+env/
+
+# Ignore log files
+*.log
+
+# Ignore IDE-specific files (e.g., for VS Code)
+.vscode/
+
+# Ignore XGBoost library files
+*.dll
+*.so
+*.dylib
+
+# Ignore other large or unnecessary files
+__pycache__/
+*.pyc
+.DS_Store
+.env
+=======
+# Ignore Python cache files
+__pycache__/
+*.py[cod]
+
+# Ignore virtual environments
+.venv/
+env/
+
+# Ignore log files
+*.log
+
+# Ignore IDE-specific files (e.g., for VS Code)
+.vscode/
+
+# Ignore XGBoost library files
+*.dll
+*.so
+*.dylib
+
+# Ignore other large or unnecessary files
+__pycache__/
+*.pyc
+.DS_Store
+.env
+>>>>>>> 92e0b791645173a1a776da55050e643a20d94d7d

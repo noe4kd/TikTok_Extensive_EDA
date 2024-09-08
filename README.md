@@ -45,7 +45,6 @@ Tiktok_EDA/
 │   │   ├── correlation_matrix.png
 │   │   ├── distribution_plot.png
 │   │   ├── pair_plot.png
-│   │   ├── test_plot.png
 │   │   ├── top_10_accounts_Comments avg..png
 │   │   ├── top_10_accounts_Likes avg..png
 │   │   ├── top_10_accounts_Shares avg..png
@@ -68,6 +67,7 @@ Tiktok_EDA/
 │   ├── KNN.py
 │   ├── __init__.py
 │   ├── outcomes/
+│   │   ├── knn_cm_test_set.png
 │   │   ├── knn_cm_test_set_test_script.png
 │   │   ├── knn_cm_validation_set.png
 │   │   ├── knn_confusion_matrix_combined.png

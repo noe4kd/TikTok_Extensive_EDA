@@ -46,19 +46,6 @@ def evaluate_model(model, X, y, dataset_name, output_dir, custom_filename=None):
     return y_pred
 
 def optimize_knn(X_train, y_train):
-    """Perform GridSearchCV to find the best hyperparameters for KNN."""
-    param_grid = {
-        'n_neighbors': range(1, 31),
-        'weights': ['uniform', 'distance'],
-        'metric': ['euclidean', 'manhattan', 'minkowski']
-    }
-    knn = KNeighborsClassifier()
-    grid_search = GridSearchCV(knn, param_grid, cv=2, scoring='accuracy')
-    grid_search.fit(X_train, y_train)
-    print(f"Best parameters found: {grid_search.best_params_}")
-    return grid_search.best_estimator_
-
-def optimize_knn(X_train, y_train):
     """Perform RandomizedSearchCV to find the best hyperparameters for KNN."""
     param_grid = {
         'n_neighbors': range(1, 31),  # Larger range for n_neighbors
